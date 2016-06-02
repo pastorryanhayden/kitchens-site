@@ -34,7 +34,8 @@ block content
                                 strong Category:
                                 | #{post.fields.categories}
                         .entry-description
-                            :markdown
-                                != '!{post.fields.content}'
+                            if post.fields.content
+                                != md(post.fields.content)
+
                             a.button(href="#") Read More
             

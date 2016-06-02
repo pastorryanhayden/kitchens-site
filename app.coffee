@@ -28,7 +28,7 @@ module.exports =
           url: blog_api,
           hook: (res) -> res.records,
         ),
-    roots_config(sermon_url: sermon_api, series_url: series_api, blog_url: blog_api, static_items: 10, md: marked)
+    roots_config(sermon_url: sermon_api, series_url: series_api, blog_url: blog_api, static_items: 10)
   ]
 
   stylus:
@@ -40,3 +40,4 @@ module.exports =
 
   jade:
     pretty: true
+    md: marked
