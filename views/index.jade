@@ -1,0 +1,40 @@
+extends layout
+
+block content
+    .hero
+        .hero-wrapper
+            h1 Chris Kitchens is a preacher who pastors Corinth Missionary Baptist Church in Moulton, Al.  He posts sermons and blog posts here.    
+    .latest-sermons
+        ul
+            li(style="background-image: url(http://placehold.it/1920x1080);") 
+                a(href="#") Matthew 6:33
+            li(style="background-image: url(http://placehold.it/1920x1080);") 
+                a(href="#") Matthew 6:33
+            li(style="background-image: url(http://placehold.it/1920x1080);") 
+                a(href="#") Matthew 6:33
+            li(style="background-image: url(http://placehold.it/1920x1080);") 
+                a(href="#") Matthew 6:33
+    
+    .wrapper
+        h3.latest-article Latest Articles:
+        .blog-listings
+            each post in records.blog_list
+                .blog-entry
+                    each img in post.fields.featured_image 
+                        img(src="#{img.url}",alt="entry-image")
+                    .entry-text
+                        .entry-header
+                            h3 
+                                a(href="#")= post.fields.title
+                            p.description 
+                                strong Posted On: 
+                                | June 3,2016 • 
+                                strong Author:
+                                | #{post.fields.author_name} •  
+                                strong Category:
+                                | #{post.fields.categories}
+                        .entry-description
+                            :markdown
+                                != '!{post.fields.content}'
+                            a.button(href="#") Read More
+            

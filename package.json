@@ -1,0 +1,21 @@
+{
+  "name": "jade-bbc",
+  "description": "porting bbc template to jade",
+  "dependencies": {
+    "autoprefixer-stylus": "0.9.x",
+    "axis": "0.6.x",
+    "bower": "^1.7.9",
+    "coffee-script": "1.x",
+    "css-pipeline": "0.3.x",
+    "jade": "1.x",
+    "js-pipeline": "0.2.x",
+    "jstransformer-markdown": "^1.1.0",
+    "jstransformer-marked": "1.x",
+    "marked": "^0.3.5",
+    "roots-config": "0.0.2",
+    "roots-records": "^0.5.1",
+    "roots-sass": "^1.0.0",
+    "rupture": "0.6.x",
+    "stylus": "0.54.x"
+  }
+}
