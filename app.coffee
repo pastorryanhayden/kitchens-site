@@ -6,6 +6,7 @@ js_pipeline  = require 'js-pipeline'
 records      = require 'roots-records'
 roots_config = require 'roots-config'
 marked       = require 'marked'
+dateFormat   = require 'dateformat'
 
 sermon_api = 'https://api.airtable.com/v0/appMthTrHxhLTkNpM/Sermons?api_key=keyRTLlrVS02vC3Vx'
 series_api = 'https://api.airtable.com/v0/appMthTrHxhLTkNpM/Series?api_key=keyRTLlrVS02vC3Vx'
@@ -40,4 +41,7 @@ module.exports =
 
   jade:
     pretty: true
+    
+  locals:  
     md: marked
+    dateFormat: dateFormat

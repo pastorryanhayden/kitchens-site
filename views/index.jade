@@ -27,8 +27,11 @@ block content
                             h3 
                                 a(href="#")= post.fields.title
                             p.description 
-                                strong Posted On: 
-                                | June 3,2016 • 
+                                strong Posted On:
+                                if post.fields.date
+                                    | #{dateFormat(post.fields.date, 'fullDate')} •
+                                else
+                                    | June 3,2016 •
                                 strong Author:
                                 | #{post.fields.author_name} •  
                                 strong Category:
