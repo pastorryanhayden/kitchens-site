@@ -1,6 +1,6 @@
-# jade-bbc
+# Kitchens Template
 
-porting bbc template to jade
+This is a personal blog/sermons template for a preacher.  It includes our blog, about pages, and sermon modules.
 
 ### Setup
 
