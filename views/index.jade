@@ -6,39 +6,45 @@ block content
             h1 Chris Kitchens is a preacher who pastors Corinth Missionary Baptist Church in Moulton, Al.  He posts sermons and blog posts here.    
     .latest-sermons
         ul
-            li(style="background-image: url(http://placehold.it/1920x1080);") 
-                a(href="#") Matthew 6:33
-            li(style="background-image: url(http://placehold.it/1920x1080);") 
-                a(href="#") Matthew 6:33
-            li(style="background-image: url(http://placehold.it/1920x1080);") 
-                a(href="#") Matthew 6:33
-            li(style="background-image: url(http://placehold.it/1920x1080);") 
-                a(href="#") Matthew 6:33
-    
+            - var count = 0;
+                each sermon in records.sermon_list
+                    if count <= 3
+                        .sermon-teaser
+                            .sermon-image
+                                each img in sermon.fields.series_featured_image
+                                    img(src="#{img.url}")
+                            .sermon-text    
+                                h5
+                                    a(href="#")= sermon.fields.title
+                    - count++;
     .wrapper
         h3.latest-article Latest Articles:
         .blog-listings
-            each post in records.blog_list
-                .blog-entry
-                    each img in post.fields.featured_image 
-                        img(src="#{img.url}",alt="entry-image")
-                    .entry-text
-                        .entry-header
-                            h3 
-                                a(href="#")= post.fields.title
-                            p.description 
-                                strong Posted On:
-                                if post.fields.date
-                                    | #{dateFormat(post.fields.date, 'fullDate')} •
-                                else
-                                    | June 3,2016 •
-                                strong Author:
-                                | #{post.fields.author_name} •  
-                                strong Category:
-                                | #{post.fields.categories}
-                        .entry-description
-                            if post.fields.content
-                                != md(post.fields.content)
+            - var count = 0;
+                each post in records.blog_list
+                    if count <= 3
+                        if post.fields.published
+                            .blog-entry
+                                each img in post.fields.featured_image 
+                                    img(src="#{img.url}",alt="entry-image")
+                                .entry-text
+                                    .entry-header
+                                        h3 
+                                            a(href="#")= post.fields.title
+                                        p.description 
+                                            strong Posted On:
+                                            if post.fields.date
+                                                | #{dateFormat(post.fields.date, 'fullDate')} •
+                                            else
+                                                | June 3,2016 •
+                                            strong Author:
+                                            | #{post.fields.author_name} •  
+                                            strong Category:
+                                            | #{post.fields.categories}
+                                    .entry-description
+                                        if post.fields.description
+                                            != md(post.fields.description)
 
-                            a.button(href="#") Read More
+                                        a.button(href="#") Read More
+                        - count++;
             

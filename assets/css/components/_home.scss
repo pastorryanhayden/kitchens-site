@@ -11,6 +11,7 @@
     padding: 20px;
 }
 
+
 .hero h1 {
     color: $white;
     width: 50%;
@@ -22,6 +23,23 @@
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 30px;
+
+    .sermon-teaser {
+        @include grid-column(12);
+        @include breakpoint(medium){
+        @include grid-column(3);
+            }
+    }
+    .sermon-text {
+        text-align: center;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    .sermon-text h5 a { 
+        color: darken($primary-color, 25%);
+    }
 }
 
 .latest-sermons h3 {
