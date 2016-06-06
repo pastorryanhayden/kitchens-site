@@ -13,6 +13,7 @@
     "jstransformer-markdown": "^1.1.0",
     "jstransformer-marked": "1.x",
     "marked": "^0.3.5",
+    "roots": "^5.0.0",
     "roots-config": "0.0.2",
     "roots-records": "^0.5.1",
     "roots-sass": "^1.0.0",
