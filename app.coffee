@@ -7,6 +7,7 @@ records      = require 'roots-records'
 roots_config = require 'roots-config'
 marked       = require 'marked'
 dateFormat   = require 'dateformat'
+slug         = require 'slug'
 
 sermon_api = 'https://api.airtable.com/v0/appMthTrHxhLTkNpM/Sermons?api_key=keyRTLlrVS02vC3Vx'
 series_api = 'https://api.airtable.com/v0/appMthTrHxhLTkNpM/Series?api_key=keyRTLlrVS02vC3Vx'
@@ -28,6 +29,8 @@ module.exports =
       blog_list:
           url: blog_api,
           hook: (res) -> res.records,
+          template: "views/_blog-entry.jade",
+          out: (post) -> "/posts/#{slug(post.fields.title)}",
         ),
     roots_config(sermon_url: sermon_api, series_url: series_api, blog_url: blog_api, static_items: 10)
   ]
@@ -45,3 +48,4 @@ module.exports =
   locals:  
     md: marked
     dateFormat: dateFormat
+    slugify: slug

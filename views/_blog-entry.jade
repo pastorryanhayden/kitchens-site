@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .blog-entry-page
+        .blog-entry
+            each img in item.fields.featured_image 
+                img(src="#{img.url}",alt="entry-image")
+            .entry-text
+                .entry-header
+                    h3= item.fields.title
+                    p.description 
+                                strong Posted On:
+                                if item.fields.date
+                                    | #{dateFormat(item.fields.date, 'fullDate')} •
+                                else
+                                    | June 3,2016 •
+                                strong Author:
+                                | #{item.fields.author_name} •  
+                                strong Category:
+                                | #{item.fields.categories}
+                .entry-content
+                    if item.fields.content
+                                != md(item.fields.content)
+                

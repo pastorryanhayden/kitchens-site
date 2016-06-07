@@ -18,6 +18,7 @@
     "roots-records": "^0.5.1",
     "roots-sass": "^1.0.0",
     "rupture": "0.6.x",
+    "slug": "^0.9.1",
     "stylus": "0.54.x"
   }
 }
