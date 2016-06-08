@@ -23,16 +23,16 @@ module.exports =
       sermon_list:
           url: sermon_api,
           hook: (res) -> res.records,
-          template: "views/_sermon.jade",
-          out: (sermon) -> "/sermons/#{slug(sermon.fields.title)}",
+          template: 'views/_sermon.jade',
+          out: (sermon) -> '/sermons/#{slug(sermon.fields.title)}',
       series_list:
           url: series_api,
           hook: (res) -> res.records,
       blog_list:
           url: blog_api,
           hook: (res) -> res.records,
-          template: "views/_blog-entry.jade",
-          out: (post) -> "/posts/#{slug(post.fields.title)}",
+          template: 'views/_blog-entry.jade',
+          out: (post) -> '/posts/#{slug(post.fields.title)}',
         ),
     roots_config(sermon_url: sermon_api, series_url: series_api, blog_url: blog_api, static_items: 10)
   ]
