@@ -6,12 +6,13 @@ head
     meta(name='author', content= "Chris Kitchens")
     block title
         title Chris Kitchens, Pastor and Evangelist
-    link(rel="stylesheet", type="text/css", href="css/app.css")
+    link(rel="stylesheet", type="text/css", href="#{rooturl}css/app.css")
 body
     header
         .logo
-            h1 Chris Kitchens
-            p •Pastor &amp; Evangelist•
+            a(href="#{rooturl}")
+                h1 Chris Kitchens
+                p •Pastor &amp; Evangelist•
         nav
             ul
                 li

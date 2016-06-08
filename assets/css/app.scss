@@ -48,8 +48,10 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+@import 'components/font';
 @import 'components/header';
 @import 'components/footer';
 @import 'components/main';
 @import 'components/home';
 @import 'components/blog';
+@import 'components/sermons';

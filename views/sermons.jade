@@ -1,4 +1,55 @@
 extends layout
 
 block content
-    
+    .sermonslistContent__header
+        .wrapper
+            h1 Sermons
+            h2 The preaching ministry of Pastor Chris Kitchens
+    .sermonslistContent
+        .sermonslistContent__MainList
+            each sermon in records.sermon_list
+                if sermon.fields.published
+                    .sermonslistItem
+                        .sermonslistItem__thumbnail
+                            if sermon.fields.series_featured_image
+                                each img in sermon.fields.series_featured_image
+                                    a(href="#{rooturl}sermons/#{slugify(sermon.fields.title)}.html") 
+                                        img(src="#{img.url}" alt="#{sermon.fields.series_title}")
+                            else
+                                a(href="#{rooturl}sermons/#{slugify(sermon.fields.title)}.html") 
+                                    img(src="http://placehold.it/560x315?text=sermons+graphic" alt="")
+
+                        .sermonslistItem__teaser
+                            .sermonslistItem__title
+                                h3
+                                    a(href="#{rooturl}sermons/#{slugify(sermon.fields.title)}.html")= sermon.fields.title
+                                ul.action_buttons.menu
+                                    if sermon.fields.sermon_mp3
+                                        each mp3 in sermon.fields.sermon_mp3
+                                            li
+                                                a(href="#{mp3.url}" alt="play")
+                                                    i.fi-play
+                                    if sermon.fields.handout
+                                        each file in sermon.fields.handout
+                                            li
+                                                a(href="#{file.url}" alt="handout")
+                                            i.fi-page-pdf
+                                    if sermon.fields.slides
+                                        each slide in sermon.fields.slides
+                                            li
+                                                a(href="#{slide.url}" alt="slides")
+                                                    i.fi-projection-screen
+                            ul.sermonslistItem__tagline
+                                if sermon.fields.date
+                                    li
+                                        i.fi-calendar
+                                        | #{dateFormat(sermon.fields.date, 'fullDate')} 
+                                if sermon.fields.service
+                                    li
+                                        i.fi-clock
+                                        | #{sermon.fields.service}
+                                if sermon.fields.bible_text
+                                    li
+                                        i.fi-book
+                                        | #{sermon.fields.bible_text}
+                            a.button(href="#{rooturl}sermons/#{slugify(sermon.fields.title)}.html") View Sermon

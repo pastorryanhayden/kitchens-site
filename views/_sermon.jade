@@ -1,0 +1,45 @@
+extends layout
+
+block content
+    .singlesermon
+        img(src="http://placehold.it/1920x1080?text=series+graphic")
+        .sermonslistItem__title
+            h3= item.fields.title
+            ul.action_buttons.menu
+                if item.fields.sermon_mp3
+                    each mp3 in item.fields.sermon_mp3
+                        li
+                            a(href="#{mp3.url}" alt="play")
+                                i.fi-play
+                if item.fields.handout
+                    each file in item.fields.handout
+                        li
+                            a(href="#{file.url}" alt="handout")
+                        i.fi-page-pdf
+                if item.fields.slides
+                    each slide in item.fields.slides
+                        li
+                            a(href="#{slide.url}" alt="slides")
+                                i.fi-projection-screen
+        ul.sermonslistItem__tagline
+            if item.fields.date
+                li
+                    i.fi-calendar
+                    | #{dateFormat(item.fields.date, 'fullDate')} 
+            if item.fields.service
+                li
+                    i.fi-clock
+                    | #{item.fields.service}
+            if item.fields.bible_text
+                li
+                    i.fi-book
+                    | #{item.fields.bible_text}
+            if item.fields.sermon_mp3
+                each mp3 in item.fields.sermon_mp3
+                    audio.sermonslistPlayer(controls)
+                        source(src="#{mp3.url}" type="audio/mpeg")
+                    a.button.warning(href="#{mp3.url}")
+                        i.fi-download
+                        | Download
+            if item.fields.description
+                != md(item.fields.description)

@@ -23,6 +23,8 @@ module.exports =
       sermon_list:
           url: sermon_api,
           hook: (res) -> res.records,
+          template: "views/_sermon.jade",
+          out: (sermon) -> "/sermons/#{slug(sermon.fields.title)}",
       series_list:
           url: series_api,
           hook: (res) -> res.records,
@@ -49,3 +51,4 @@ module.exports =
     md: marked
     dateFormat: dateFormat
     slugify: slug
+    rooturl: 'http://localhost:1111/'

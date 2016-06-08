@@ -15,7 +15,7 @@ block content
                                     img(src="#{img.url}")
                             .sermon-text    
                                 h5
-                                    a(href="#")= sermon.fields.title
+                                    a(href="#{rooturl}sermons/#{slugify(sermon.fields.title)}.html")= sermon.fields.title
                     - count++;
     .wrapper
         h3.latest-article Latest Articles:
@@ -45,6 +45,6 @@ block content
                                         if post.fields.description
                                             != md(post.fields.description)
 
-                                        a.button(href="#") Read More
+                                        a.button(href="#{rooturl}/posts/#{slugify(post.fields.title)}.html") Read More
                         - count++;
             

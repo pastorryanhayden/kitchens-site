@@ -14,7 +14,7 @@ block content
                         .entry-text
                             .entry-header
                                 h3 
-                                    a(href="#")= post.fields.title
+                                    a(href="#{rooturl}/posts/#{slugify(post.fields.title)}.html")= post.fields.title
                                 p.description 
                                     strong Posted On:
                                     if post.fields.date
