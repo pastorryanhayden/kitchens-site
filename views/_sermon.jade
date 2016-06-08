@@ -2,7 +2,11 @@ extends layout
 
 block content
     .singlesermon
-        img(src="http://placehold.it/1920x1080?text=series+graphic")
+        if item.fields.series_featured_image
+            each img in item.fields.series_featured_image
+                img(src="#{img.url}" alt="#{sermon.fields.series_title}")
+        else
+            img(src="http://placehold.it/1920x1080?text=series+graphic")
         .sermonslistItem__title
             h3= item.fields.title
             ul.action_buttons.menu
