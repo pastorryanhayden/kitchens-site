@@ -13,7 +13,14 @@ background-color: #fff;
         width: 100%;
         padding: 40px;
         @include breakpoint(medium){
-            width: 50%;
+            @include grid-column(4);
+        }
+    }
+    .footer-twitter {
+        width: 100%;
+        padding: 40px;
+        @include breakpoint(medium){
+            @include grid-column(4);
         }
     }
 
@@ -29,7 +36,7 @@ background-color: #fff;
         padding: 40px;
         color: $medium-gray;
         @include breakpoint(medium){
-            width: 50%;
+            @include grid-column(4);
         }
     }
     .footer-menu {

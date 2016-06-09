@@ -52,3 +52,6 @@ module.exports =
     dateFormat: dateFormat
     slugify: slug
     rooturl: 'http://chris-kitchens.netlify.com/'
+    ###
+    rooturl: 'http://localhost:1111/'
+    ###
