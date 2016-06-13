@@ -1,0 +1,38 @@
+<h1 id="configuration">Configuration</h1>
+<p>Motion UI has six variables which store all of the library&#39;s settings. Each is a map of keys and values.</p>
+<h2 id="states">States</h2>
+<pre><code class="lang-scss">$motion-ui-states: (
+  in: &#39;enter&#39;,
+  out: &#39;leave&#39;,
+);
+</code></pre>
+<p>Motion UI defines two motion states: <code>in</code> and <code>out</code>, which create classes with the words <code>enter</code> and <code>leave</code> respectively.</p>
+<h2 id="classes">Classes</h2>
+<pre><code class="lang-scss">$motion-ui-classes: (
+  chain: true,
+  prefix: &#39;mui-&#39;,
+  active: &#39;-active&#39;,
+);
+</code></pre>
+<p>Different animation libraries have different ways of writing classes, but most libraries require a setup class, as well as an active class to trigger a transition or animation.</p>
+<p>The default configuration outputs classes like this:</p>
+<pre><code class="lang-css">.fade-in.mui-enter {}
+.fade-in.mui-enter.mui-enter-active {}
+</code></pre>
+<p>Set the <code>chain</code> property of <code>$motion-ui-classes</code> to <code>false</code> to create classes like this:</p>
+<pre><code class="lang-css">.fade-in-mui-enter {}
+.fade-in-mui-enter.fade-in-mui-enter-active {}
+</code></pre>
+<p>The class output can also be fine-tuned with the <code>prefix</code> and <code>active</code> properties.</p>
+<h2 id="animation-defaults">Animation Defaults</h2>
+<p>The maps <code>$motion-ui-speeds</code>, <code>$motion-ui-delays</code>, and <code>$motion-ui-easings</code> define terms for animation speeds, delays, and timing functions. For example, the <code>default</code> speed of animations is 500ms, while <code>slow</code> is 750ms, and <code>fast</code> is 250ms.</p>
+<h2 id="other-settings">Other Settings</h2>
+<p>Miscellaneous settings are in the <code>$motion-ui-settings</code> map. These settings define if animations include a fade, and what class to use for triggering an animation queue.</p>
+<pre><code class="lang-scss">$motion-ui-settings: (
+  slide-and-fade: false,
+  hinge-and-fade: true,
+  scale-and-fade: true,
+  spin-and-fade: true,
+  activate-queue-class: &#39;is-animating&#39;
+);
+</code></pre>

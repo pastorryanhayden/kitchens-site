@@ -1,0 +1,33 @@
+<h1 id="getting-started">Getting Started</h1>
+<h2 id="installation">Installation</h2>
+<p>Install Motion UI with npm or Bower.</p>
+<pre><code class="lang-bash">npm install motion-ui --save
+bower install motion-ui --save
+</code></pre>
+<h2 id="sass-usage">Sass Usage</h2>
+<p>To import the Sass files into a project, add the load path <code>[modules_folder]/motion-ui/src</code> to your Sass configuration, then <code>@import</code> the library:</p>
+<pre><code class="lang-scss">@import &#39;motion-ui&#39;;
+</code></pre>
+<p><strong><a href="https://github.com/postcss/autoprefixer">Autoprefixer</a> is required to use this library.</strong> The library uses unprefixed <code>transition</code> and <code>animation</code> properties, which are then prefixed by Autoprefixer.</p>
+<p>The library includes two mixins which export all of the <a href="classes.md">default CSS</a> for the framework. This includes:</p>
+<ul>
+<li>Transitions for slide, fade, hinge, scale, and spin</li>
+<li>Animation classes for spinning, shaking, and wiggling</li>
+<li>Modifier classes for transition/animation speed, timing, and delay</li>
+</ul>
+<pre><code class="lang-scss">@include motion-ui-transitions;
+@include motion-ui-animations;
+</code></pre>
+<h2 id="css-usage">CSS Usage</h2>
+<p>The package files also include these pre-made classes as a standalone CSS file, in minified and unminified flavors.</p>
+<ul>
+<li><strong>Uncompressed:</strong> <code>[modules_folder]/motion-ui/dist/motion-ui.css</code></li>
+<li><strong>Compressed:</strong> <code>[modules_folder]/motion-ui/dist/motion-ui.min.css</code></li>
+</ul>
+<h2 id="javascript-usage">JavaScript Usage</h2>
+<p>The package includes a small JavaScript library to help you transition elements in and out using Motion UI classes. It can be referenced as a browser global or a CommonJS/AMD package. Like the CSS, there&#39;s uncompressed and compressed versions included.</p>
+<ul>
+<li><strong>Uncompressed:</strong> <code>[modules_folder]/motion-ui/dist/motion-ui.js</code></li>
+<li><strong>Compressed:</strong> <code>[modules_folder]/motion-ui/dist/motion-ui.min.js</code></li>
+</ul>
+<p>Refer to the full <a href="javascript.md">JavaScript documentation</a> to learn more about how the JS library works.</p>

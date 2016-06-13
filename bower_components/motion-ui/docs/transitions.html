@@ -1,0 +1,83 @@
+<h1 id="transitions">Transitions</h1>
+<p>Each transition has its own mixin, with multiple parameters that can customize the details of the effect. To create a transition class, just <code>@include</code> the mixin inside a class. Motion UI will create the necessary boilerplate for you.</p>
+<p>Here&#39;s a basic fade in class. The first parameter of every transition mixin is a <em>state</em>, which is either <code>in</code> or <code>out</code>. In transitions reveal elements, while out transitions hide them.</p>
+<pre><code class="lang-scss">.fade-in {
+  @include mui-fade(in);
+}
+</code></pre>
+<p>Here&#39;s what the CSS looks like.</p>
+<pre><code class="lang-css">.fade-in.mui-enter {
+  opacity: 0;
+  transition-property: opacity; }
+
+.fade-in.mui-enter.mui-enter-active {
+  opacity: 1; }
+</code></pre>
+<p>The last three parameters of every transition mixin are the same: <code>$duration</code>, which sets the speed of the effect; <code>$timing</code>, which adjusts the easing; and <code>$delay</code>, which adds a delay before the effect starts.</p>
+<pre><code class="lang-scss">.fade-in {
+  // A long, long fade
+  @include mui-fade(in, $duration: 10s);
+}
+</code></pre>
+<h2 id="mixins">Mixins</h2>
+<h3 id="mui-fade-">mui-fade()</h3>
+<p>Creates a fade transition by adjusting the opacity of the element.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>state</code> (Keyword) - State to transition to. (<strong>Default:</strong> in)</li>
+<li><code>from</code> (Number) - Opacity to start at. Must be a number between 0 and 1. (<strong>Default:</strong> 0)</li>
+<li><code>to</code> (Number) - Opacity to end on. (<strong>Default:</strong> 1)</li>
+<li><code>duration</code> (Keyword) - Length (speed) of the transition. (<strong>Default:</strong> null)</li>
+<li><code>timing</code> (Keyword|Function) - Easing of the transition. (<strong>Default:</strong> null)</li>
+<li><code>delay</code> (Duration) - Delay in seconds or milliseconds before the transition starts. (<strong>Default:</strong> null)</li>
+</ul>
+<h3 id="mui-hinge-">mui-hinge()</h3>
+<p>Creates a hinge transition by rotating the element.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>state</code> (Keyword) - State to transition to. (<strong>Default:</strong> in)</li>
+<li><code>from</code> (Keyword) - Edge of the element to rotate from. Can be <code>top</code>, <code>right</code>, <code>bottom</code>, or <code>left</code>. (<strong>Default:</strong> left)</li>
+<li><code>axis</code> (Keyword) - Axis of the element to rotate on. Can be <code>edge</code> or <code>center</code>. (<strong>Default:</strong> edge)</li>
+<li><code>perspective</code> (Length) - Perceived distance between the viewer and the element. A higher number will make the rotation effect more pronounced. (<strong>Default:</strong> 2000px)</li>
+<li><code>turn-origin</code> (Keyword) - Side of the element to start the rotation from. Can be <code>from-back</code> or <code>from-front</code>. (<strong>Default:</strong> from-back)</li>
+<li><code>fade</code> (Boolean) - Set to <code>true</code> to fade the element in or out simultaneously. (<strong>Default:</strong> true)</li>
+<li><code>duration</code> (Duration) - Length (speed) of the transition. (<strong>Default:</strong> null)</li>
+<li><code>timing</code> (Keyword|Function) - Easing of the transition. (<strong>Default:</strong> null)</li>
+<li><code>delay</code> (Duration) - Delay in seconds or milliseconds before the transition starts. (<strong>Default:</strong> null)</li>
+</ul>
+<h3 id="mui-slide-">mui-slide()</h3>
+<p>Creates a sliding transition by translating the element horizontally or vertically.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>state</code> (Keyword) - State to transition to. (<strong>Default:</strong> in)</li>
+<li><code>direction</code> (Keyword) - Direction to slide to. Can be <code>up</code>, <code>right</code>, <code>down</code>, or <code>left</code>. (<strong>Default:</strong> left)</li>
+<li><code>amount</code> (Length) - Length of the slide as a percentage value. (<strong>Default:</strong> 100%)</li>
+<li><code>fade</code> (Boolean) - Set to <code>true</code> to fade the element in or out simultaneously. (<strong>Default:</strong> false)</li>
+<li><code>duration</code> (Duration) - Length (speed) of the transition. (<strong>Default:</strong> null)</li>
+<li><code>timing</code> (Keyword|Function) - Easing of the transition. (<strong>Default:</strong> null)</li>
+<li><code>delay</code> (Duration) - Delay in seconds or milliseconds before the transition starts. (<strong>Default:</strong> null)</li>
+</ul>
+<h3 id="mui-spin-">mui-spin()</h3>
+<p>Creates a spinning transition by rotating the element. The <code>turn</code> unit is used to specify how far to rotate. <code>1turn</code> is equal to a 360-degree spin.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>state</code> (Keyword) - State to transition to. (<strong>Default:</strong> in)</li>
+<li><code>direction</code> (Boolean) - Direction to spin. Should be <code>cw</code> (clockwise) or <code>ccw</code> (counterclockwise). (<strong>Default:</strong> cw)</li>
+<li><code>amount</code> (Number) - Amount to element the element. (<strong>Default:</strong> 0.75turn)</li>
+<li><code>fade</code> (Boolean) - Set to <code>true</code> to fade the element in or out simultaneously. (<strong>Default:</strong> false)</li>
+<li><code>duration</code> (Duration) - Length (speed) of the transition. (<strong>Default:</strong> null)</li>
+<li><code>timing</code> (Keyword|Function) - Easing of the transition. (<strong>Default:</strong> null)</li>
+<li><code>delay</code> (Duration) - Delay in seconds or milliseconds before the transition starts. (<strong>Default:</strong> null)</li>
+</ul>
+<h3 id="mui-zoom-">mui-zoom()</h3>
+<p>Creates a scaling transition. A scale of <code>1</code> means the element is the same size. Larger numbers make the element bigger, while numbers less than 1 make the element smaller.</p>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>state</code> (Keyword) - State to transition to. (<strong>Default:</strong> in)</li>
+<li><code>from</code> (Number) - Size to start at. (<strong>Default:</strong> 1.5)</li>
+<li><code>from</code> (Number) - Size to end at. (<strong>Default:</strong> 1)</li>
+<li><code>fade</code> (Boolean) - Set to <code>true</code> to fade the element in or out simultaneously. (<strong>Default:</strong> true)</li>
+<li><code>duration</code> (Duration) - Length (speed) of the transition. (<strong>Default:</strong> null)</li>
+<li><code>timing</code> (Keyword|Function) - Easing of the transition. (<strong>Default:</strong> null)</li>
+<li><code>delay</code> (Duration) - Delay in seconds or milliseconds before the transition starts. (<strong>Default:</strong> null)</li>
+</ul>
